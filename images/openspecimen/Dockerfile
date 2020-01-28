@@ -49,7 +49,7 @@ RUN wget https://services.gradle.org/distributions/gradle-2.0-bin.zip -P /tmp \
 
 # Setup build tools
 RUN mkdir -p /opt/tomcat/latest/OpenSpecimen/plugins \
-    && mkdir -p /opt/tomcat/latest/OpenSpecimen/os-data
+    && mkdir -p /opt/tomcat/latest/os-data
 
 # Copy config files
 ADD configs/build.properties /tmp/openspecimen/
