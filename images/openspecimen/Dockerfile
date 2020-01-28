@@ -29,7 +29,7 @@ ENV GRADLE_HOME="/opt/gradle/gradle-2.0"
 ENV PATH="${GRADLE_HOME}/bin:${PATH}"
 
 # Setup build tools
-RUN wget http://services.gradle.org/distributions/gradle-2.0-bin.zip -P /tmp \
+RUN wget https://services.gradle.org/distributions/gradle-2.0-bin.zip -P /tmp \
     && apt-get install -y unzip curl git \
     && unzip -d /opt/gradle /tmp/gradle-*.zip \
     && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
