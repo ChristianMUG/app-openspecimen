@@ -61,7 +61,7 @@ ADD configs/openspecimen.properties /opt/tomcat/latest/conf/
 # Build WAR file
 RUN cd /tmp/openspecimen \
     && sed -i 's/http:/https:/g' /tmp/openspecimen/build.gradle \
-    && gradle build --force \
+    && gradle build \
     && cp build/libs/openspecimen.war /opt/tomcat/latest/webapps/ROOT.war \
     && chown tomcat:tomcat /opt/tomcat/latest/conf/openspecimen.properties \
     && chown tomcat:tomcat /opt/tomcat/latest/conf/context.xml \
