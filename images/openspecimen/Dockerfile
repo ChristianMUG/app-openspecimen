@@ -16,7 +16,8 @@ RUN wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | a
     && apt install -y adoptopenjdk-8-hotspot
 
 # Setup tomcat and dependencies
-RUN apt-get install -y build-essential libpng-dev \
+RUN apt-get update \
+    && apt-get install -y build-essential libpng-dev \
     && mkdir /opt/tomcat/ \
     && useradd -r -m -U -d /opt/tomcat -s /bin/false tomcat \
     && wget https://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.30/bin/apache-tomcat-9.0.30.tar.gz -P /tmp/ \
@@ -29,7 +30,8 @@ ENV GRADLE_HOME="/opt/gradle/gradle-2.0"
 ENV PATH="${GRADLE_HOME}/bin:${PATH}"
 
 # Setup build tools
-RUN wget https://services.gradle.org/distributions/gradle-2.0-bin.zip -P /tmp \
+RUN apt-get update \
+    && wget https://services.gradle.org/distributions/gradle-2.0-bin.zip -P /tmp \
     && apt-get install -y unzip curl git \
     && unzip -d /opt/gradle /tmp/gradle-*.zip \
     && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
