@@ -2,7 +2,7 @@
  
 FROM debian:jessie
 ARG DEBIAN_FRONTEND=noninteractive
-ARG VERSION="v6.2.x"
+ARG VERSION="v6.3.x"
 
 RUN apt-get update \
     && apt-get install -y software-properties-common apt-utils wget gnupg \
