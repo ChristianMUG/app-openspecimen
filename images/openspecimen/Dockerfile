@@ -63,6 +63,7 @@ RUN cd /tmp/openspecimen \
     && sed -i 's/http:/https:/g' /tmp/openspecimen/build.gradle \
     && gradle build \
     && cp build/libs/openspecimen.war /opt/tomcat/latest/webapps/ROOT.war \
+    && rm -r /opt/tomcat/latest/webapps/ROOT \
     && chown tomcat:tomcat /opt/tomcat/latest/conf/openspecimen.properties \
     && chown tomcat:tomcat /opt/tomcat/latest/conf/context.xml \
     && wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar -P /opt/tomcat/latest/lib/ \
