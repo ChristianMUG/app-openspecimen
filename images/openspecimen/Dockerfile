@@ -61,7 +61,7 @@ ADD configs/openspecimen.properties /opt/tomcat/latest/conf/
 # Build WAR file
 RUN cd /tmp/openspecimen \
     && sed -i 's#mavenCentral()#maven { url "https://repo.maven.apache.org/maven2" }#g' /tmp/openspecimen/build.gradle \
-    && gradle build \
+    && gradle build  --stacktrace --debug \
     && cp build/libs/openspecimen.war /opt/tomcat/latest/webapps/ROOT.war \
     && rm -r /opt/tomcat/latest/webapps/ROOT \
     && chown tomcat:tomcat /opt/tomcat/latest/conf/openspecimen.properties \
