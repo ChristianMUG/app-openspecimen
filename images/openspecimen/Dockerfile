@@ -68,6 +68,7 @@ RUN cd /tmp/openspecimen \
     && chown tomcat:tomcat /opt/tomcat/latest/conf/context.xml \
     && wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar -P /opt/tomcat/latest/lib/ \
     && rm -rf /tmp/openspecimen \
+    && rm -rf /opt/tomcat/latest/webapps/ROOT \
     && apt remove -y git
 
 RUN echo 'export PS1="[\u@openspecimen:\w]# "' >> /root/.bashrc
