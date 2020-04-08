@@ -49,6 +49,7 @@ if [[ ! -f "$file" ]]; then
   npm install
   bower install --allow-root
   cd /opt/openspecimen_build
+  sed -i "s/maevenCentral()/maven { url "https://repo.maven.apache.org/maven2" }/g" /opt/openspecimen_build/build.gradle
   gradle build --stacktrace --debug
   mv /opt/openspecimen_build/build/libs/openspecimen.war "$file"
   
