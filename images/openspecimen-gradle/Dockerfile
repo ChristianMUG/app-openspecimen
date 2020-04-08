@@ -23,19 +23,20 @@ RUN apt-get update \
     && apt-get -y upgrade \
     && apt-get -y install oracle-java11-installer-local \
     && apt-get -y install oracle-java11-set-default-local \
-    && mkdir -p /opt/packages/gradle \
-    && cd /opt/packages/gradle \
-    && wget https://services.gradle.org/distributions/gradle-5.0-bin.zip \
-    && unzip gradle-5.0-bin.zip \
-    && rm gradle-5.0-bin.zip \
-    && ln -s /opt/packages/gradle/gradle-5.0 /opt/gradle \
-    && echo '# Gradle' >> /.profile \
-    && echo 'if [ -d "/opt/gradle" ]; then' >> /.profile \
-    && echo '  export GRADLE_HOME="/opt/gradle"' >> /.profile \
-    && echo '  PATH="$PATH:$GRADLE_HOME/bin"' >> /.profile \
+    #&& mkdir -p /opt/packages/gradle \
+    #&& cd /opt/packages/gradle \
+    #&& wget https://services.gradle.org/distributions/gradle-5.0-bin.zip \
+    #&& unzip gradle-5.0-bin.zip \
+    #&& rm gradle-5.0-bin.zip \
+    #&& ln -s /opt/packages/gradle/gradle-5.0 /opt/gradle \
+    #&& echo '# Gradle' >> /.profile \
+    #&& echo 'if [ -d "/opt/gradle" ]; then' >> /.profile \
+    #&& echo '  export GRADLE_HOME="/opt/gradle"' >> /.profile \
+    #&& echo '  PATH="$PATH:$GRADLE_HOME/bin"' >> /.profile \
+    &&  apt-get install gradle
     && echo 'fi' >> /.profile \
     && . /.profile \
-    && curl -sL https://deb.nodesource.com/setup_13.x | bash - \
+    #&& curl -sL https://deb.nodesource.com/setup_13.x | bash - \
     && apt-get -y install nodejs \
     && npm install -g bower \
     && npm install -g yo \
